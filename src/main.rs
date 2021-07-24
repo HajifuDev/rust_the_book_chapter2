@@ -29,7 +29,14 @@ fn main() {
         io::stdin().read_line(&mut guess)
             .expect("Failed to read line");     // 行の読み込みに失敗しました
     
-        let guess: u32 = guess.trim().parse().expect("Please type number");
+        // 不正な入力値の場合は再入力を促す。
+        let guess: u32 = match guess.trim().parse() {
+            Ok(num) => num,
+            Err(_) => {
+                println!("no, please type number.");
+                continue;
+            }
+        };
     
         println!("You guessed: {}", guess);     // 次のように予想しました: {}
     
