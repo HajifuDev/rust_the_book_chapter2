@@ -12,7 +12,6 @@ fn main() {
 
     // thread_rngは乱数生成器。
     let secret_number = rand::thread_rng().gen_range(1, 101);
-    println!("secret number is {}.", secret_number);
 
     loop {
         println!("Please input your guess.");   // ほら、予想を入力してね
